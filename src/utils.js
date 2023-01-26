@@ -3,6 +3,7 @@ const CAT_EVENT_NAMES = {
     hungry: 'hungry',
     dirtyLitter: 'dirtyLitter',
     affection: 'affection',
+    randomMeow: "randomMeow"
 }
 
 const HUMAN_EVENT_NAMES = {
@@ -11,5 +12,7 @@ const HUMAN_EVENT_NAMES = {
     cleanLitter: 'cleanLitter',
     pet: 'pet',
 }
+
+
 
 module.exports = { CAT_EVENT_NAMES, HUMAN_EVENT_NAMES};

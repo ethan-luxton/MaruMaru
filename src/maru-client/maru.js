@@ -10,7 +10,7 @@ function startMaru(ioClient) {
 
 function sendBored(ioClient) {
 ioClient.emit(CAT_EVENT_NAMES.bored);
-    
+
 }
 
 function sendHungry(ioClient){
@@ -25,3 +25,4 @@ function sendAffection(ioClient){
     ioClient.emit(CAT_EVENT_NAMES.affection);
 
 }
+
