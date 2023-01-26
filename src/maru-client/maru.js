@@ -4,20 +4,24 @@ const { io } = require('socket.io-client');
 const { CAT_EVENT_NAMES } = require('../utils');
 
 function startMaru(ioClient) {
-    function ready() {
-        sendNeed(ioClient);
-    }
-    ready();
+    console.log("Meow")
+
 }
 
-function sendNeed(ioClient) {
-// conditional based on Maru's input(HTML)
-// if Maru picks bored:
+function sendBored(ioClient) {
 ioClient.emit(CAT_EVENT_NAMES.bored);
-// if Maru picks hungry:
-ioClient.emit(CAT_EVENT_NAMES.hungry);
-// if Maru picks dirty litter:
-ioClient.emit(CAT_EVENT_NAMES.dirtyLitter);
-// if Maru picks affection:
-ioClient.emit(CAT_EVENT_NAMES.affection);
+    
+}
+
+function sendHungry(ioClient){
+    ioClient.emit(CAT_EVENT_NAMES.hungry);
+}
+
+function sendLitter(ioClient){
+    ioClient.emit(CAT_EVENT_NAMES.dirtyLitter);
+}
+
+function sendAffection(ioClient){
+    ioClient.emit(CAT_EVENT_NAMES.affection);
+
 }
