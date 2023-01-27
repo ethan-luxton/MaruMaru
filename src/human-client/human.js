@@ -1,6 +1,9 @@
 'use strict';
 
-const { Socket } = require('socket.io-client');
+const inquirer = require('inquirer');
+
+const prompt = inquirer.createPromptModule();
+
 const { CAT_EVENT_NAMES, HUMAN_EVENT_NAMES } = require('../utils')
 
 function handleMeow(ioClient){
@@ -19,7 +22,8 @@ function humanFeed(ioClient){
 
 function play(ioClient){
     ioClient.on(CAT_EVENT_NAMES.randomMeow)
-    ioClient.emit(HUMAN_EVENT_NAMES.play)
+    console.log('helllllllllllllllllo')
+    
     console.log("You decided to play with Maru");
 }
 
@@ -36,7 +40,33 @@ function pet(ioClient){
 }
 
 function startHuman(ioClient){
-    ioClient.on(CAT_EVENT_NAMES.dirtyLitter,CAT_EVENT_NAMES.bored, CAT_EVENT_NAMES.hungry, CAT_EVENT_NAMES.affection, ()=> handleMeow(ioClient));
+    
+        ioClient.on(CAT_EVENT_NAMES.randomMeow, (payload) => {
+            console.log(payload)
+            console.log("Type: Play, pet, feed, clean litter")
+            
+            // prompt(
+                
+            //     ["What does Maru want? "]
+            //     ).then((answers) => {
+            //     if (answers.toLowerCase() === "play") {
+            //         ioClient.emit(HUMAN_EVENT_NAMES.play, input)
+            //     }
+            // })
+            
+            
 
+            // Marus random meow will always hit this listener
+            // This is where we need multiple choice to appear on the console
+            // The user types a guess
+            // Then emits back to hub
+            // Hub evaluates emit for correctness
+            // Let player/maru know result
+
+
+        });
+  
+    
 }
 
+module.exports = { startHuman };

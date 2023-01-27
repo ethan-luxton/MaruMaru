@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "hub": "node src/index.js",
+    "maru": "node src/maru-client/index.js",
+    "human": "node src/human-client/index.js",
+    "start": "concurrently npm:hub npm:maru npm:human"
   },
   "repository": {
     "type": "git",
@@ -21,8 +25,10 @@
     "@types/node": "^18.11.18",
     "concurrently": "^7.6.0",
     "eslint": "^8.32.0",
+    "inquirer": "^8.2.5",
     "jest": "^29.4.0",
     "prettier": "^2.8.3",
+    "prompt-sync": "^4.2.0",
     "socket.io": "^4.5.4",
     "socket.io-client": "^4.5.4"
   }

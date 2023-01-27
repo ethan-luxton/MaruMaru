@@ -1,15 +1,20 @@
 'use strict';
 
-const { io } = require('socket.io-client');
+
+
+
 const { CAT_EVENT_NAMES } = require('../utils');
 
-function startMaru(ioClient) {
-    console.log("Meow")
 
+
+function startMaru(events) {
+    console.log("Meow")
+    events.emit("Maru here");
+    sendBored(events)
 }
 
 function sendBored(ioClient) {
-ioClient.emit(CAT_EVENT_NAMES.bored);
+    ioClient.emit(CAT_EVENT_NAMES.bored);
 
 }
 
@@ -26,3 +31,4 @@ function sendAffection(ioClient){
 
 }
 
+module.exports = { startMaru }
